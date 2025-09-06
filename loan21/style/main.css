@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&amp;display=swap');
+
+
+body {
+    margin: 0;
+    font-family: "Dosis", sans-serif;
+    background-color: #ffffff;
+    color: white;
+}
+
+.container {
+    max-width: 420px;
+    margin: 0 auto;
+    background: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.header-box {
+    text-align: center;
+    color: #ff0000;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ff008c;
+    background: #f1eeee;
+    padding: 10px;
+}
+
+.main-image {
+    width: 100%;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 0px;
+}
+
+.article-title {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #ff0000;
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.paragraph-box {
+    background-color: #f1eeee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    line-height: 1.6;
+    border: 1px solid #e390bddb;
+    color: #ff0000;
+}
+
+.paragraph-box strong {
+    color: #ff0000;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer a {
+    color: #fbd700;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header-box {
+        font-size: 1.3em;
+    }
+
+    .article-title {
+        font-size: 1.1em;
+    }
+}
+
+strong {
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+
+.video-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.video-column {
+    flex: 1 1 5%;
+    max-width: 500px;
+    text-decoration: none;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-bg1 {
+    width: 100%;
+    height: 265px;
+    filter: blur(1.8px);
+    transition: filter 0.3s ease;
+}
+
+.video-bg {
+    width: 100%;
+    height: auto;
+    filter: blur(6.9px);
+    transition: filter 0.3s ease;
+}
+
+.play-button {
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+}
+
+.play-button::before {
+    content: '';
+    display: inline-block;
+    margin-left: 5px;
+    border-style: solid;
+    border-width: 8px 0px 8px 13px;
+    border-color: transparent transparent transparent #ff0000;
+}
+
+@keyframes pulse {
+    0% {
+        background: rgba(255, 255, 255, 0.8);
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.6;
+    }
+}
+
+.tutorial-box {
+    background: linear-gradient(to bottom right, #ff008c, #2196F3);
+    border-radius: 12px;
+    padding: 25px;
+    width: 320px;
+    color: white;
+
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    margin: 30px auto;
+}
+
+.tutorial-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    width: 80%;
+    padding: 14px 24px;
+    margin: 15px auto;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #FFC107, #E91E63);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse-glow 2s infinite;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(233, 30, 99, 0.6);
+}
+
+.play-icon {
+    margin-right: 10px;
+    animation: play-bounce 1s infinite;
+    display: inline-block;
+}
+
+/* Glow pulse animation */
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(233, 30, 99, 0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+    }
+}
+
+/* Icon bounce animation */
+@keyframes play-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+
+.download-now {
+    background: linear-gradient(to right, #E91E63, #FFC107);
+}
+
+.button:hover {
+    filter: brightness(1.1);
+}
+
+.info-text {
+    font-size: 14px;
+    margin: 15px 0;
+    color: #f5f5f5;
+}
+
+.alarm-bell {
+    display: inline-block;
+    animation: bell-jingle 1s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+/* Keyframe for bell jingle (zip-style animation) */
+@keyframes bell-jingle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    15% {
+        transform: rotate(15deg);
+    }
+
+    30% {
+        transform: rotate(-12deg);
+    }
+
+    45% {
+        transform: rotate(10deg);
+    }
+
+    60% {
+        transform: rotate(-8deg);
+    }
+
+    75% {
+        transform: rotate(6deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.age {
+    text-align: center;
+
+    color: white;
+
+}
+
+.age-message {
+
+    font-weight: 600;
+    color: #fb53a0;
+
+}
+
+.age-button {
+    margin-bottom: 15px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+    animation: zoomPulse 1.5s infinite;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.age-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
+}
+
+/* Zoom in-out keyframes */
+@keyframes zoomPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.mt {
+    margin-top: 20px;
+}
+
+
+
+/* PLAY NOW button below */
+.play-now-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #ff0000, #ff6a00);
+    color: white;
+    padding: 10px 25px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 30px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.play-now-btn:hover {
+    background: linear-gradient(45deg, #e60000, #ff4500);
+    transform: translateX(-50%) scale(1.05);
+}
+
+
+
+.article-title22 {
+    font-weight: 400;
+    color: red;
+    text-align: center;
+}
+
+p.sec {
+    text-align: center;
+    font-size: 13px;
+    color: #e7d9cf;
+}
+
+
+.mt-2 {
+
+    padding-top: 10px;
+}
+
+.mt-10 {
+    margin-top: 100px;
+}
+
+.ad-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner_height {
+    height: 395px !important;
+    width: 100%;
+}
+
+
+.main-color {
+    background: #051629 !important;
+}
