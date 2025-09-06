@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+ <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> instantaprove.online | Play Quiz game Learn & Gain Knowledge</title>
+  <link rel="shortcut icon" href="images/quiz_favicon.png" type="image/x-icon">
+  <link href="css/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-3.6.4.min.js"></script>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net/">
+  <script async src="../securepubads.g.doubleclick.net/tag/js/f.txt"></script>
+  <script src="js/ads.js"></script>
+</head>
+
+<body>
+  <div>
+    <div id="toast-container" class="fixed top-5 right-5 space-y-4 z-50" style="z-index: 9999;"></div>
+
+    <!-- Treasure pop-up -->
+    <div class="popup_model fixed flex justify-center items-center hidden z-40" id="treasure-popup">
+      <div class="usr_reward bg-white rounded-lg p-6 shadow-xl">
+        <div class="mt-2 flex justify-end">
+          <a href="playquiz.html">
+            <span class="p-3 font-bold text-xl cursor-pointer mr-4">×</span>
+          </a>
+        </div>
+        <div>
+          <div class="text-center">
+            <div class="col">
+              <div class="flex justify-center">
+                <div id="lottie-container" style="width: 150px; height: 150px;">
+                  <img src="images/treasure.png" alt="Treasure">
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h2 class="font-bold text-xl text-center">New Reward Available</h2>
+              <h2 class="text-xl m-3 font-bold">Get Instant 100 Coins!</h2>
+              <p class="text-sm text-gray-400">Watch a simple ad and get rewarded</p>
+              <div class="mt-5">
+                <button class="default_btn w-96 bg-blue-500 text-white py-2 px-4 rounded"
+                  onclick="RewardAd()">Claim</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile view container -->
+    <div class="mobile">
+      <!-- First ad slot -->
+      <div class="ads-box mb-4" style="min-height: 250px;">
+        <div id="ad-slot-1" class="ad-container w-full flex justify-center"></div>
+      </div>
+
+      <div class="fist_layer text-center p-3 mt-3">
+        <div class="row">
+          <div class="m-3">
+            <h4 class="hidden">Question <span class="quiz-text" id="currentindex">1</span>/ <span
+                id="totalquestion"></span></h4>
+          </div>
+          <div class="col">
+            <p class="text-sm text-gray-400 font-bold">Answer few questions and win coins <i class="fa-solid fa-coins"
+                style="color: #FFD43B;"></i> 150 free!</p>
+            <h4 class="quiz-text hidden" id="quiz-title">Quiz-Title</h4>
+            <img class="cursor-pointer w-12 mx-auto" src="images/notification_bell.gif" alt="Notification bell">
+          </div>
+          <div class="col mt-3 w-full" id="quiz-container">
+            <div class="QA_area" id="question-container">
+              <p class="font-extrabold text-left" id="question"></p>
+              <div class="q_options mt-2" id="answers"></div>
+              <div class="hidden" id="result"></div>
+            </div>
+          </div>
+          <div class="col mt-10">
+            <div class="ft_area p-3">
+              <div class="font-bold text-xl mb-3"><i class="fa-solid fa-book fa-sm"></i> Genius Facts</div>
+              <div class="text-gray-400 font-bold text-left text-sm">
+                <p class="mb-2">🔘 A loan is a sum of money borrowed from a lender that is expected to be repaid with
+                  interest over time.</p>
+                <p class="mb-2">🔘 Loans can be secured (backed by collateral) or unsecured (based on creditworthiness).
+                </p>
+                <p class="mb-2">🔘 Common types include personal loans, home loans, auto loans, and student loans.</p>
+                <p class="mb-2">🔘 Interest rates vary depending on the type of loan, the borrower's credit score, and
+                  the lending institution.</p>
+                <p class="mb-2">🔘 Timely repayment helps build credit, while missed payments can damage credit scores
+                  and lead to penalties.</p>
+                <p class="mb-2">🔘 Loans are a critical financial tool, allowing individuals and businesses to access
+                  funds for education, housing, emergencies, or business expansion.</p>
+              </div>
+            </div>
+          </div>
+          <div class="ads-box mb-4" style="min-height: 250px;">
+            <div id="ad-slot-2" class="ad-container w-full flex justify-center"></div>
+          </div>
+          <div class="ads-box mb-4" style="min-height: 250px;">
+            <div id="ad-slot-1" class="ad-container w-full flex justify-center"></div>
+          </div>
+          <div class="col mt-4">
+            <div class="QA_rules">
+              <h1 class="text-2xl font-bold text-left">Play Quiz and Win Coins!</h1>
+              <ul class="mt-1 p-3 text-gray-400 text-sm font-bold">
+                <li>Play Quizzes in 25+ categories like GK, Sports, Bollywood, Business, Cricket & More!</li>
+                <li>Compete with lakhs of other players!</li>
+                <li>Win Coins for every game</li>
+                <li>Trusted by millions of other quiz enthusiasts like you!</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup overlay for second ad -->
+  <div class="popup-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-30 hidden"
+    id="popupOverlay">
+    <div class="popup-content bg-white rounded-lg p-6 relative max-w-md w-full mx-4">
+      <button class="close-popup absolute top-2 right-4 text-2xl font-bold" onclick="closePopup()">×</button>
+      <div class="ads-box mt-8" style="min-height: 250px;">
+        <div id="ad-slot-2" class="ad-container w-full flex justify-center"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
+  <script src="js/footer.js"></script>
+  <script>
+    function RewardAd2() {
+      if (!window.googletag || !googletag.cmd || !googletag.enums) {
+        console.error("Google Ad Manager is not properly initialized.");
+        showToast({
+          title: "Error",
+          msg: "Ad system not ready. Please try again.",
+        });
+        return;
+      }
+
+      googletag.cmd.push(function () {
+        try {
+          if (
+            !googletag.enums.OutOfPageFormat ||
+            !googletag.enums.OutOfPageFormat.REWARDED
+          ) {
+            console.error("Rewarded ad format not supported");
+            showToast({
+              title: "Error",
+              msg: "Rewarded ads not supported on this device.",
+            });
+            return;
+          }
+
+          const rewardedSlot = googletag
+            .defineOutOfPageSlot(
+              "/23293093930/Interstitialrewarded",
+              googletag.enums.OutOfPageFormat.REWARDED
+            )
+            .addService(googletag.pubads());
+
+          if (!rewardedSlot) {
+            console.error("Failed to create finance rewarded ad slot");
+            showToast({ title: "Error", msg: "Failed to create reward ad." });
+            return;
+          }
+
+          googletag.display(rewardedSlot);
+          console.log("Attempting to display finance rewarded ad...");
+
+          const timeoutId = setTimeout(() => {
+            console.log("Finance rewarded ad timeout");
+            showToast({
+              title: "Timeout",
+              msg: "Ad took too long to load. Please try again.",
+            });
+            googletag.destroySlots([rewardedSlot]);
+          }, 10000);
+
+          googletag.pubads().addEventListener("rewardedSlotReady", function (evt) {
+            console.log("Finance rewarded ad ready.");
+            clearTimeout(timeoutId);
+            evt.makeRewardedVisible();
+            treasurepopremove();
+          });
+
+          googletag.pubads().addEventListener("rewardedSlotClosed", function () {
+            console.log("Finance rewarded ad closed.");
+            clearTimeout(timeoutId);
+            googletag.destroySlots([rewardedSlot]);
+            showToast({
+              title: "Reward Earned!",
+              msg: "100 coins added to your account!",
+            });
+          });
+
+          googletag.pubads().addEventListener("rewardedSlotGranted", function () {
+            console.log("Finance reward granted.");
+            showToast({
+              title: "Success!",
+              msg: "Reward will be credited shortly.",
+            });
+          });
+        } catch (error) {
+          console.error("Error during finance rewarded ad setup:", error);
+          showToast({
+            title: "Error",
+            msg: "Failed to load rewarded ad: " + error.message,
+          });
+        }
+      });
+    }
+
+    setTimeout(() => {
+      RewardAd2();
+    }, 3000);
+  </script>
+</body>
+
+
+</html>

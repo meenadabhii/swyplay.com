@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+
+    <!-- Viewport meta tag to ensure proper scaling on different devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the web page -->
+    <title>  instantaprove.online | Play Quiz game Learn & Gain Knowledge </title>
+    <!-- Favicon Of Site -->
+    <link rel="shortcut icon" href="images/quiz_favicon.png" type="image/x-icon">
+    <!-- Link to Tailwind CSS for styling -->
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link to custom CSS for additional styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jQuery library -->
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <!-- Google AdSense script -->
+    <script async src="../securepubads.g.doubleclick.net/tag/js/f.txt"></script>
+    <!-- Custom ads script -->
+    <script src="js/ads.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <div class="mobile">
+            <div id="toast-container" class="fixed top-5 right-5 space-y-4"></div>
+
+            <div class="fist_layer text-center p-3 mt-3">
+                <div style="width: 100%;">
+                    <!-- First ad slot -->
+                    <div class="ads-box mb-4" style="min-height: 250px;">
+                        <div id="ad-slot-1" class="ad-container w-full flex justify-center"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col mt-10">
+                            <div class="ft_area p-3">
+                                <h4 class="font-bold">Quiz Game</h4>
+                                <div class="font-bold text mb-3">You have won <i class="fa-solid fa-coins"
+                                        style="color: #FFD43B;"></i> 100 Coins
+                                </div>
+
+                                <button class="default_btn" onclick="RewardAd()">Play Quiz</button>
+
+                                <div class="QA_rules">
+                                    <ul class="mt-1 p-3 text-gray-400 text-sm font-bold">
+                                        <li>Play Quizzes in 25+ categories like GK, Sports, Bollywood, Business, Cricket
+                                            &
+                                            More!
+                                        </li>
+                                        <li>Compete with lakhs of other players!</li>
+                                        <li>Win Coins for every game</li>
+                                        <li>Trusted by millions of other quiz enthusiasts like you!</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let popupShown = false;
+            let popupCheckInterval = setInterval(checkAndShowPopup, 1000);
+
+            function checkAndShowPopup() {
+                if (popupShown) return;
+
+                const adSlot2 = document.getElementById("ad-slot-2");
+                const adIframe = adSlot2 ? adSlot2.querySelector("iframe") : null;
+
+                if (adIframe && adIframe.offsetWidth > 0 && adIframe.offsetHeight > 0) {
+                    // Ad is actually rendered
+                    document.getElementById("popupOverlay").classList.remove("hidden");
+                    document.getElementById("popupOverlay").style.opacity = 1;
+
+                    popupShown = true;
+                    console.log("Popup ad displayed");
+                    clearInterval(popupCheckInterval);
+                }
+            }
+
+            // Stop checking after 30 seconds
+            setTimeout(() => {
+                clearInterval(popupCheckInterval);
+            }, 30000);
+
+            function closePopup() {
+                document.getElementById("popupOverlay").style.display = "none";
+            }
+
+            // Add click event listeners to option elements
+            document.addEventListener("DOMContentLoaded", function () {
+                const optionElements = document.querySelectorAll(".option");
+                optionElements.forEach(function (element) {
+                    element.addEventListener("click", function () {
+                        console.log("Option clicked");
+                    });
+                });
+            });
+
+            function treasurepopremove() {
+                const model = document.getElementById("treasure-popup");
+                const popup = document.querySelector(".usr_reward");
+                model.classList.remove("show");
+                popup.classList.remove("show");
+                setTimeout(() => {
+                    model.classList.add("hidden");
+                }, 300);
+            }
+
+            function treasureopen() {
+                const model = document.getElementById("treasure-popup");
+                const popup = document.querySelector(".usr_reward");
+                model.classList.remove("hidden");
+                setTimeout(() => {
+                    model.classList.add("show");
+                    popup.classList.add("show");
+                }, 50);
+            }
+
+            function closereward() {
+                location.href = "home.html";
+            }
+
+            function showToast(e) {
+                const toast = document.createElement("div");
+                toast.className =
+                    "max-w-xs border border-gray-200 p-4 rounded shadow-lg flex items-center space-x-4";
+                toast.innerHTML = `
+        <div class="flex-shrink-0" style="z-index: 1111111 !important;">
+
+          <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7 12l5 5L21 7" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold">${e.title}</p>
+          <p class="text-sm">${e.msg}</p>
+        </div>
+      `;
+                document.getElementById("toast-container").appendChild(toast);
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            }
+
+            function RewardAd() {
+                if (!window.googletag || !googletag.cmd || !googletag.enums) {
+                    console.error("Google Ad Manager is not properly initialized.");
+                    showToast({
+                        title: "Error",
+                        msg: "Ad system not ready. Please try again.",
+                    });
+                    return;
+                }
+
+                googletag.cmd.push(function () {
+                    try {
+                        if (
+                            !googletag.enums.OutOfPageFormat ||
+                            !googletag.enums.OutOfPageFormat.REWARDED
+                        ) {
+                            console.error("Rewarded ad format not supported");
+                            showToast({
+                                title: "Error",
+                                msg: "Rewarded ads not supported on this device.",
+                            });
+                            return;
+                        }
+
+                        const rewardedSlot = googletag
+                            .defineOutOfPageSlot(
+                                "/23293093930/Interstitialrewarded",
+                                googletag.enums.OutOfPageFormat.REWARDED
+                            )
+                            .addService(googletag.pubads());
+
+                        if (!rewardedSlot) {
+                            console.error("Failed to create finance rewarded ad slot");
+                            showToast({ title: "Error", msg: "Failed to create reward ad." });
+                            return;
+                        }
+
+                        googletag.display(rewardedSlot);
+                        console.log("Attempting to display finance rewarded ad...");
+
+                        const timeoutId = setTimeout(() => {
+                            console.log("Finance rewarded ad timeout");
+                            showToast({
+                                title: "Timeout",
+                                msg: "Ad took too long to load. Please try again.",
+                            });
+                            closereward();
+                            googletag.destroySlots([rewardedSlot]);
+                        }, 10000);
+
+                        googletag.pubads().addEventListener("rewardedSlotReady", function (evt) {
+                            console.log("Finance rewarded ad ready.");
+                            clearTimeout(timeoutId);
+                            evt.makeRewardedVisible();
+                            treasurepopremove();
+                        });
+
+                        googletag.pubads().addEventListener("rewardedSlotClosed", function () {
+                            console.log("Finance rewarded ad closed.");
+                            clearTimeout(timeoutId);
+                            googletag.destroySlots([rewardedSlot]);
+                            showToast({
+                                title: "Reward Earned!",
+                                msg: "100 coins added to your account!",
+                            });
+                            closereward()
+                        });
+
+                        googletag.pubads().addEventListener("rewardedSlotGranted", function () {
+                            console.log("Finance reward granted.");
+                            showToast({
+                                title: "Success!",
+                                msg: "Reward will be credited shortly.",
+                            });
+                        });
+                    } catch (error) {
+                        console.error("Error during finance rewarded ad setup:", error);
+                        closereward()
+                        showToast({
+                            title: "Error",
+                            msg: "Failed to load rewarded ad: " + error.message,
+                        });
+                    }
+                });
+            }
+
+
+        </script>
+</body>
+
+
+</html>
