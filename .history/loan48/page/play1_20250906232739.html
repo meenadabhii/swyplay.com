@@ -6,426 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TOP VIDEOS</title>
     <link rel="stylesheet" href="../style/main.css">
-   <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&amp;display=swap');
-
-
-        body {
-            margin: 0;
-            font-family: "Dosis", sans-serif;
-            background-color: #ffffff;
-            color: white;
-        }
-
-        .container {
-            max-width: 420px;
-            margin: 0 auto;
-            background: #f0f0f0;
-            padding: 20px;
-            box-sizing: border-box;
-            border-radius: 10px;
-        }
-
-        .header-box {
-            text-align: center;
-            color: #ff0000;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ff008c;
-            background: #f1eeee;
-            padding: 10px;
-        }
-
-        .main-image {
-            width: 100%;
-            display: block;
-            margin: 0 auto 20px auto;
-            border-radius: 0px;
-        }
-
-        .article-title {
-            text-transform: uppercase;
-            font-weight: 400;
-            color: #ff0000;
-            font-size: 1.2em;
-            margin-bottom: 25px;
-            margin-top: 25px;
-            text-align: center;
-        }
-
-        .paragraph-box {
-            background-color: #f1eeee;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            line-height: 1.6;
-            border: 1px solid #e390bddb;
-            color: #ff0000;
-        }
-
-        .paragraph-box strong {
-            color: #ff0000;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        footer a {
-            color: #fbd700;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 0.9em;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                padding: 15px;
-            }
-
-            .header-box {
-                font-size: 1.3em;
-            }
-
-            .article-title {
-                font-size: 1.1em;
-            }
-        }
-
-        strong {
-            font-weight: 500;
-            padding-top: 10px;
-            padding-bottom: 10px;
-
-        }
-
-
-        .video-row {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .video-column {
-            flex: 1 1 5%;
-            max-width: 500px;
-            text-decoration: none;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .video-bg1 {
-            width: 100%;
-            height: 265px;
-            filter: blur(1.8px);
-            transition: filter 0.3s ease;
-        }
-
-        .video-bg {
-            width: 100%;
-            height: auto;
-            filter: blur(6.9px);
-            transition: filter 0.3s ease;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 49%;
-            left: 50%;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            animation: pulse 1.5s infinite;
-        }
-
-        .play-button::before {
-            content: '';
-            display: inline-block;
-            margin-left: 5px;
-            border-style: solid;
-            border-width: 8px 0px 8px 13px;
-            border-color: transparent transparent transparent #ff0000;
-        }
-
-        @keyframes pulse {
-            0% {
-                background: rgba(255, 255, 255, 0.8);
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 0.6;
-            }
-        }
-
-        .tutorial-box {
-            background: linear-gradient(to bottom right, #ff008c, #2196F3);
-            border-radius: 12px;
-            padding: 25px;
-            width: 320px;
-            color: white;
-
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            margin: 30px auto;
-        }
-
-        .tutorial-box h2 {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            width: 80%;
-            padding: 14px 24px;
-            margin: 15px auto;
-            text-align: center;
-            border-radius: 10px;
-            font-weight: 400;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(45deg, #FFC107, #E91E63);
-            box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: pulse-glow 2s infinite;
-        }
-
-        .button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(233, 30, 99, 0.6);
-        }
-
-        .play-icon {
-            margin-right: 10px;
-            animation: play-bounce 1s infinite;
-            display: inline-block;
-        }
-
-        /* Glow pulse animation */
-        @keyframes pulse-glow {
-            0% {
-                box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
-            }
-
-            50% {
-                box-shadow: 0 0 25px rgba(233, 30, 99, 0.8);
-            }
-
-            100% {
-                box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
-            }
-        }
-
-        /* Icon bounce animation */
-        @keyframes play-bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-3px);
-            }
-        }
-
-
-        .download-now {
-            background: linear-gradient(to right, #E91E63, #FFC107);
-        }
-
-        .button:hover {
-            filter: brightness(1.1);
-        }
-
-        .info-text {
-            font-size: 14px;
-            margin: 15px 0;
-            color: #f5f5f5;
-        }
-
-        .alarm-bell {
-            display: inline-block;
-            animation: bell-jingle 1s ease-in-out infinite;
-            transform-origin: top center;
-        }
-
-        /* Keyframe for bell jingle (zip-style animation) */
-        @keyframes bell-jingle {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            15% {
-                transform: rotate(15deg);
-            }
-
-            30% {
-                transform: rotate(-12deg);
-            }
-
-            45% {
-                transform: rotate(10deg);
-            }
-
-            60% {
-                transform: rotate(-8deg);
-            }
-
-            75% {
-                transform: rotate(6deg);
-            }
-
-            100% {
-                transform: rotate(0deg);
-            }
-        }
-
-        .age {
-            text-align: center;
-
-            color: white;
-
-        }
-
-        .age-message {
-
-            font-weight: 600;
-            color: #fb53a0;
-
-        }
-
-        .age-button {
-            margin-bottom: 15px;
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #fff;
-            background: linear-gradient(to right, #ff416c, #ff4b2b);
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
-            animation: zoomPulse 1.5s infinite;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .age-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
-        }
-
-        /* Zoom in-out keyframes */
-        @keyframes zoomPulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.07);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-
-        .mt {
-            margin-top: 20px;
-        }
-
-
-
-        /* PLAY NOW button below */
-        .play-now-btn {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(45deg, #ff0000, #ff6a00);
-            color: white;
-            padding: 10px 25px;
-            font-size: 13px;
-            font-weight: bold;
-            border-radius: 30px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transition: 0.3s ease-in-out;
-            cursor: pointer;
-        }
-
-        .play-now-btn:hover {
-            background: linear-gradient(45deg, #e60000, #ff4500);
-            transform: translateX(-50%) scale(1.05);
-        }
-
-
-
-        .article-title22 {
-            font-weight: 400;
-            color: red;
-            text-align: center;
-        }
-
-        p.sec {
-            text-align: center;
-            font-size: 13px;
-            color: #e7d9cf;
-        }
-
-
-        .mt-2 {
-
-            padding-top: 10px;
-        }
-
-        .mt-10 {
-            margin-top: 100px;
-        }
-
-        .ad-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .banner_height {
-            height: 395px !important;
-            width: 100%;
-        }
-
-
-        .main-color {
-            background: #051629 !important;
-        }
-    </style>
 
     <style>
         .play-button {
@@ -549,7 +129,7 @@
         }
     </style>
 
-    
+ 
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
 
     <script>
@@ -669,7 +249,6 @@
 
 
 
-
 </head>
 
 <body>
@@ -713,7 +292,7 @@
             <div class="tutorial-box">
                 <h2>CLICK ON PLAY VIDEO</h2>
 
-                <a href="../pages/video9.html" class="button play-video">
+                <a href="../pages/video1.html" class="button play-video">
                     <span class="play-icon">▶</span> Play Video
                 </a>
 
@@ -722,7 +301,7 @@
                     BUTTON !!!
                 </p>
 
-                <a href="../pages/video9.html" class="button download-now">
+                <a href="../pages/video1.html" class="button download-now">
                     <span class="play-icon">⬇</span> Download Now
                 </a>
             </div>
@@ -734,8 +313,6 @@
 
 
         <div class="article-title">top 10 finance companies in usa 2025</div>
-
-        <!-- Display Banner 300x600 -->
 
 
         <div class="paragraph-box">
@@ -788,6 +365,7 @@
             Services: Home loans, personal loans, investment services
         </div>
 
+
         <div class="paragraph-box">
             <strong>5. Morgan Stanley — Best for Wealth Management</strong><br />
             <strong>Why It Stands Out:</strong> Morgan Stanley provides top-tier wealth management services and is a
@@ -805,6 +383,7 @@
             Headquarters: New York, NY<br />
             Focus: Credit cards, travel, small business services
         </div>
+        <div id="div-gpt-ad-3" style="min-width:300px; min-height:250px;"></div>
 
         <div class="paragraph-box">
             <strong>7. Capital One — Best for Digital Banking Experience</strong><br />
@@ -814,7 +393,6 @@
             Headquarters: McLean, VA<br />
             Services: Credit cards, savings, auto loans
         </div>
-        <div id="div-gpt-ad-3" style="min-width:300px; min-height:250px;"></div>
 
         <div class="paragraph-box">
             <strong>8. Charles Schwab — Best for Low-Cost Investing</strong><br />
@@ -864,12 +442,124 @@
             <strong>Q4: What’s the safest finance company in 2025?</strong><br />
             A: Companies with A+ or A++ AM Best ratings like MassMutual, Schwab, and JPMorgan are considered very safe.
         </div>
+        <div class="article-title">types of lawyers in the world 2025</div>
+
+        <div id="div-MWebStickyAds"></div>
+
+        <div class="paragraph-box">
+            <strong>Introduction to Types of Lawyers in the World 2025</strong><br />
+            In 2025, the legal profession continues to expand and diversify, covering every aspect of law from criminal
+            justice
+            to corporate governance. Lawyers specialize in different fields to serve individuals, businesses, and
+            governments.
+            <br /><br />
+            Below are the main types of lawyers in the world, recognized for their expertise, responsibilities,
+            and impact in the legal industry.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>1. Criminal Lawyers</strong><br />
+            <strong>Role:</strong> Defend or prosecute individuals accused of crimes in court.<br /><br />
+            <strong>Known for:</strong> Handling cases like theft, assault, fraud, and homicide.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>2. Corporate Lawyers</strong><br />
+            <strong>Role:</strong> Advise companies on mergers, acquisitions, contracts, and compliance.<br /><br />
+            <strong>Known for:</strong> Protecting business interests and ensuring legal compliance.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>3. Family Lawyers</strong><br />
+            <strong>Role:</strong> Handle cases related to marriage, divorce, child custody, and adoption.<br /><br />
+            <strong>Known for:</strong> Resolving personal and family disputes.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>4. Human Rights Lawyers</strong><br />
+            <strong>Role:</strong> Defend individuals and communities against violations of rights and
+            freedoms.<br /><br />
+            <strong>Known for:</strong> Fighting for equality, freedom of speech, and justice.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>5. Intellectual Property (IP) Lawyers</strong><br />
+            <strong>Role:</strong> Protect creative works, patents, trademarks, and copyrights.<br /><br />
+            <strong>Known for:</strong> Supporting inventors, artists, and businesses.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>6. Environmental Lawyers</strong><br />
+            <strong>Role:</strong> Work on legal cases involving pollution, conservation, and climate
+            change.<br /><br />
+            <strong>Known for:</strong> Advocating for environmental protection and sustainable policies.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>7. Immigration Lawyers</strong><br />
+            <strong>Role:</strong> Assist individuals with visas, citizenship, asylum, and deportation
+            cases.<br /><br />
+            <strong>Known for:</strong> Helping people move across borders legally.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>8. Tax Lawyers</strong><br />
+            <strong>Role:</strong> Advise clients on tax planning, disputes with tax authorities, and
+            compliance.<br /><br />
+            <strong>Known for:</strong> Reducing tax liabilities and resolving tax-related disputes.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>9. Real Estate Lawyers</strong><br />
+            <strong>Role:</strong> Handle property-related cases, including buying, selling, leasing, and
+            disputes.<br /><br />
+            <strong>Known for:</strong> Managing real estate contracts and property laws.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>10. International Lawyers</strong><br />
+            <strong>Role:</strong> Deal with cases across borders, including trade, treaties, and human rights
+            issues.<br /><br />
+            <strong>Known for:</strong> Representing governments, corporations, and global organizations.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>What to Consider When Choosing a Lawyer</strong><br />
+            When selecting a lawyer, keep these factors in mind:
+            <ul>
+                <li><strong>Specialization:</strong> Match the lawyer’s expertise with your legal needs</li>
+                <li><strong>Experience:</strong> Years of practice and previous case results</li>
+                <li><strong>Reputation:</strong> Track record and client feedback</li>
+                <li><strong>Cost:</strong> Hourly rates, flat fees, or contingency-based payment</li>
+                <li><strong>Location:</strong> Local vs international representation</li>
+            </ul>
+        </div>
+
+        <div class="paragraph-box">
+            <strong>Final Thoughts</strong><br />
+            Lawyers in 2025 specialize in a wide range of areas, ensuring that individuals, businesses, and governments
+            get the legal support they need.
+            <br /><br />
+            Whether you require help with criminal defense, family matters, corporate disputes, or international cases,
+            there is a specialized lawyer for every situation.
+        </div>
+
+        <div class="paragraph-box">
+            <strong>Frequently Asked Questions (FAQs)</strong><br />
+            <strong>Q1. What type of lawyer earns the most in 2025?</strong><br />
+            A: Corporate lawyers and intellectual property lawyers are among the highest earners.<br /><br />
+
+            <strong>Q2. Which type of lawyer is in demand globally?</strong><br />
+            A: Human rights, immigration, and environmental lawyers are highly sought after.<br /><br />
+
+            <strong>Q3. What type of lawyer should I hire for business issues?</strong><br />
+            A: A corporate lawyer or tax lawyer is best suited for business-related legal matters.<br /><br />
+        </div>
 
 
 
 
     </div>
-
 
 
 </body>
